@@ -15,6 +15,9 @@ class AppMenu extends Component {
         <NavLink exact to="/users" className="menu-item">
           Users
         </NavLink>
+        <NavLink exact to="/teams" className="menu-item">
+          Teams
+        </NavLink>
       </div>
     )
   }
