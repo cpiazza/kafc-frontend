@@ -13,7 +13,7 @@ class Players extends Component {
 
         axios.get('http://localhost:3000/api/v1/players', config).then(response => {
             const players = response.data.players;
-            this.setSate({ players })
+            this.setState({ players })
             }
         )
     }
