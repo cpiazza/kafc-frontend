@@ -5,6 +5,7 @@ import Players from './players/Players'
 import Users from './users/Users'
 import Teams from './teams/Teams'
 import Stats from './stats/Stats'
+import Matches from './matches/Matches'
 
 class AppContent extends Component {
   render () {
@@ -15,6 +16,8 @@ class AppContent extends Component {
         <Route exact path="/users" component={Users} />
         <Route exact path="/teams" component={Teams} />
         <Route exact path="/stats" component={Stats} />
+        <Route exact path="/matches" component={Matches} />
+
       </div>
     )
   }
