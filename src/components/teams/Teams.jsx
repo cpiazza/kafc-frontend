@@ -11,7 +11,7 @@ class Teams extends Component {
             headers: {'Acess-Control-Allow-Origin': '*'}
         };
 
-        axios.get('http://localhost:3000/api/v1/teams', config).then(response => {
+        axios.get('teams', config).then(response => {
             const teams = response.data.teams;
             this.setState({ teams })
         }

@@ -11,7 +11,7 @@ class Players extends Component {
             headers: {'Access-Control-Allow-Origin': '*'}
         };
 
-        axios.get('http://localhost:3000/api/v1/players', config).then(response => {
+        axios.get('players', config).then(response => {
             const players = response.data.players;
             this.setState({ players })
             }

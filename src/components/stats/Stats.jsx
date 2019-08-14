@@ -11,7 +11,7 @@ class Stats extends Component {
             headers: {'Access-Control-Allow-Origin': '*'}
         };
 
-        axios.get('http://localhost:3000/api/v1/stats', config).then(response => {
+        axios.get('stats', config).then(response => {
             const stats = response.data.stats;
             this.setState({ stats })
         }
