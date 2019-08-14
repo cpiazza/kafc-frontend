@@ -7,11 +7,7 @@ class Stats extends Component {
     };
 
     componentDidMount() {
-        let config = {
-            headers: {'Access-Control-Allow-Origin': '*'}
-        };
-
-        axios.get('stats', config).then(response => {
+        axios.get('stats').then(response => {
             const stats = response.data.stats;
             this.setState({ stats })
         }

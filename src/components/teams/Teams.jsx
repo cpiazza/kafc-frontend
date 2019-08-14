@@ -7,11 +7,7 @@ class Teams extends Component {
     };
 
     componentDidMount() {
-        let config = {
-            headers: {'Acess-Control-Allow-Origin': '*'}
-        };
-
-        axios.get('teams', config).then(response => {
+        axios.get('teams').then(response => {
             const teams = response.data.teams;
             this.setState({ teams })
         }

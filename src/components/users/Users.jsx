@@ -7,11 +7,7 @@ class Users extends Component {
   };
 
   componentDidMount() {
-    let config = {
-      headers: {'Access-Control-Allow-Origin': '*'}
-    };
-
-    axios.get('users', config).then(response => {
+    axios.get('users').then(response => {
       const users = response.data.users;
       this.setState({ users })
       }
