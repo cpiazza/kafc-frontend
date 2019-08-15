@@ -23,6 +23,7 @@ class AppMenu extends Component {
       return (
         <div id="app-menu" className="app-menu">
           <NavLink exact to="/" className="menu-item">Home</NavLink>
+          <NavLink exact to="/login" className="menu-item">Login</NavLink>
         </div>
       )
     }

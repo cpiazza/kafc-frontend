@@ -6,6 +6,21 @@
   padding: 10px;
 }
 
+.app-content {
+  padding: 20px;
+}
+
+.app-footer {
+  padding: 20px;
+  color: grey;
+  font-size: 10px;
+}
+
+.form-row {
+  width: 100%;
+  padding: 10px;
+}
+
 .menu-item {
   padding-right: 10px;
   padding-left: 10px;

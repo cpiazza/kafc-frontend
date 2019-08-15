@@ -7,12 +7,14 @@ import Users from './users/Users'
 import Teams from './teams/Teams'
 import Stats from './stats/Stats'
 import Matches from './matches/Matches'
+import Login from './login/Login'
 
 class AppContent extends Component {
   render () {
     return (
-      <div id="app-content">
+      <div id="app-content" className="app-content">
         <Route exact path="/" component={Homepage} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/players" component={Players} />
         <Route exact path="/users" component={Users} />
