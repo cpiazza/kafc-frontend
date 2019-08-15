@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { loginSuccess } from '../../actions/auth/auth'
+import store from '../../appStore'
+
+window.store = store;
 
 class Login extends Component {
   constructor() {
@@ -8,8 +12,20 @@ class Login extends Component {
   }
 
   handleSubmit(event) {
-    console.log('Button Clicked!!')
-    console.log(event)
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const loginParams = {
+      user: {
+        email: formData.get('email'),
+        password: formData.get('password')
+      }
+    };
+
+    axios.post('login', loginParams).then(response => {
+      store.dispatch(loginSuccess(response.data['user']));
+      this.props.history.push('/dashboard')
+    })
   }
 
   render () {

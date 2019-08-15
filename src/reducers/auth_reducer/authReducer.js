@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import {
   USER_LOGIN_SUCCESSFUL,
   USER_LOGIN_UNSUCCESSFUL
@@ -29,3 +31,6 @@ export default (state = initialState, action) => {
       return state;
   }
 }
+
+export const userLoggedIn = state => state.user !== undefined;
+export const userEmail = state => _.get(state.user, 'email', false);

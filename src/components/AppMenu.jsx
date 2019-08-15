@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import store from '../appStore'
 
-const state = store.getState();
+export class AppMenu extends Component {
 
-class AppMenu extends Component {
   render () {
-    const loggedIn = state.auth.user !== undefined;
+    const loggedIn = this.props.userLoggedIn;
 
     if (loggedIn) {
       return (
@@ -30,4 +31,20 @@ class AppMenu extends Component {
   }
 }
 
-export default AppMenu;
+store.subscribe(() => mapStateToProps(store.getState()));
+
+AppMenu.propTypes = {
+  userLoggedIn: PropTypes.bool
+};
+
+AppMenu.defaultProps = {
+  AppMenu: false
+};
+
+function mapStateToProps(state) {
+  return {
+    userLoggedIn: state.auth.user !== undefined
+  }
+}
+
+export default connect(mapStateToProps)(AppMenu);
