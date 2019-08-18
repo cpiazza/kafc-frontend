@@ -7,11 +7,7 @@ class Players extends Component {
     };
 
     componentDidMount() {
-        let config = {
-            headers: {'Access-Control-Allow-Origin': '*'}
-        };
-
-        axios.get('http://localhost:3000/api/v1/players', config).then(response => {
+        axios.get('players').then(response => {
             const players = response.data.players;
             this.setState({ players })
             }

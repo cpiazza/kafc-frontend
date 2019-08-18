@@ -7,10 +7,7 @@ class Matches extends Component {
     };
 
     componentDidMount() {
-        let config = {
-            headers: {'Access-Control-Allow-Origin': '*'}
-        };
-        axios.get('http://localhost:3000/api/v1/matches', config).then(response => {
+        axios.get('matches').then(response => {
             const matches = response.data.matches;
             this.setState({ matches })
         }
