@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { loginSuccess } from '../../actions/auth/auth'
-import { loginFailure } from '../../actions/auth/auth'
 import store from '../../appStore'
 
 window.store = store;
 
 class Login extends Component {
-  state = {
-    loginError: undefined
-  };
-
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,14 +23,9 @@ class Login extends Component {
     };
 
     axios.post('login', loginParams).then(response => {
-      debugger;
+      response.data['user'].jwt = response.headers['authorization'];
       store.dispatch(loginSuccess(response.data['user']));
       this.props.history.push('/dashboard')
-    }, (error) => {
-      const loginError = true;
-
-      this.setState({loginError});
-      store.dispatch(loginFailure(error));
     })
   }
 
@@ -43,9 +33,6 @@ class Login extends Component {
     return (
       <div>
         <h1>Login</h1>
-        <div className={this.state.loginError === undefined ? 'hidden' : 'error'}>
-          Login Failed - Invalid email or password.
-        </div>
         <form onSubmit={this.handleSubmit}>
           <div className='form-row'>
             <label htmlFor="email">Email: </label>

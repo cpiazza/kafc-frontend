@@ -7,6 +7,7 @@ setCommonHeaders(Axios);
 
 // Request Interceptor
 Axios.interceptors.request.use(function (config) {
+  setCommonHeaders(Axios);
   return config;
 }, function (error) {
   return Promise.reject(error);
