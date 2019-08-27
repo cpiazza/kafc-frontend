@@ -28,6 +28,7 @@ class Login extends Component {
     };
 
     axios.post('login', loginParams).then(response => {
+      debugger;
       store.dispatch(loginSuccess(response.data['user']));
       this.props.history.push('/dashboard')
     }, (error) => {
