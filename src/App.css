@@ -47,6 +47,17 @@
   color: #61dafb;
 }
 
+.error {
+  background-color: #dbb0b7;
+  border: 1px solid;
+  color: darkred;
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
