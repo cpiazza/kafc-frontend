@@ -1,4 +1,5 @@
-import Axios from "axios";
+import Axios from 'axios';
+import store from './appStore'
 import { setBaseUrl } from './services/axios/setBaseUrl';
 import { setCommonHeaders } from './services/axios/setCommonHeaders';
 
@@ -7,6 +8,12 @@ setCommonHeaders(Axios);
 
 // Request Interceptor
 Axios.interceptors.request.use(function (config) {
+  const state = store.getState();
+
+  if (state.auth.user !== undefined) {
+    config.headers.common['Authorization'] = state.auth.user.jwt
+  }
+
   return config;
 }, function (error) {
   return Promise.reject(error);
